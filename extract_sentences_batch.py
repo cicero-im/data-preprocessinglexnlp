@@ -367,11 +367,9 @@ def extract_text_from_html(filename, begin_phrases=BEGIN_PHRASES, end_phrases=EN
     
     if filename.endswith('.html'):
         title = filename.split(".")[0].split("/")[-1]
-
-        # Opening the html file
-        html_file = open(filename, "r")
-        # Reading the file
-        index = html_file.read()
+        with open(filename, "r") as html_file:
+            # Reading the file
+            index = html_file.read()
         # Creating a BeautifulSoup object and specifying the parser
         s = BeautifulSoup(index, 'lxml-xml')
 

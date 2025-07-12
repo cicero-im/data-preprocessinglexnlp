@@ -290,10 +290,9 @@ def extract_text_from_html(filename, start_tokens, digits, excl_phrases, excl_st
     """
     
     if filename.endswith('.html'):
-        # Opening the html file
-        html_file = open(filename, "r")
-        # Reading the file
-        index = html_file.read()
+        with open(filename, "r") as html_file:
+            # Reading the file
+            index = html_file.read()
         # Creating a BeautifulSoup object and specifying the parser
         s = BeautifulSoup(index, 'lxml-xml')
 
